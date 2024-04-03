@@ -15,7 +15,6 @@ import java.net.InetSocketAddress
 
 
 object YouTubeChatClient : ClientModInitializer {
-	private val logger = LoggerFactory.getLogger("youtube-chat")
 	private val server: HttpServer = HttpServer.create(InetSocketAddress(8000), 0)
 
 	override fun onInitializeClient() {
@@ -29,20 +28,19 @@ object YouTubeChatClient : ClientModInitializer {
 		@Throws(IOException::class)
 		override fun handle(request: HttpExchange) {
 			val player: ClientPlayerEntity = MinecraftClient.getInstance().player ?: return
+			val input = InputStreamReader(request.requestBody, "utf-8")
+			val reader = BufferedReader(input)
+			var byteIndex: Int
+			val stringBuilder = StringBuilder()
 
-			val isr = InputStreamReader(request.requestBody, "utf-8")
-			val br = BufferedReader(isr)
-
-			var b: Int
-			val buf = StringBuilder()
-			while ((br.read().also { b = it }) != -1) {
-				buf.append(b.toChar())
+			while ((reader.read().also { byteIndex = it }) != -1) {
+				stringBuilder.append(byteIndex.toChar())
 			}
 
-			br.close()
-			isr.close()
+			reader.close()
+			input.close()
 
-			player.sendMessage(Text.of(buf.toString()))
+			player.sendMessage(Text.of(stringBuilder.toString()))
 
 			request.sendResponseHeaders(200, 0);
 		}

@@ -3,24 +3,17 @@
 	"id": "youtube-chat",
 	"version": "${version}",
 	"name": "YouTube Chat",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "A Minecraft mod that brings any YouTube Stream chat into Minecraft ",
 	"authors": [
-		"Me!"
+		"Allison"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/Allybe/YTChatToMinecraft"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/youtube-chat/icon.png",
 	"environment": "*",
 	"entrypoints": {
-		"main": [
-			{
-				"value": "ally.ytchat.YouTubeChat",
-				"adapter": "kotlin"
-			}
-		],
 		"client": [
 			{
 				"value": "ally.ytchat.YouTubeChatClient",
@@ -34,8 +27,5 @@
 		"java": ">=17",
 		"fabric-api": "*",
 		"fabric-language-kotlin": ">=1.9.23"
-	},
-	"suggests": {
-		"another-mod": "*"
 	}
 }
