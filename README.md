@@ -14,3 +14,6 @@ Firstly, open your live stream chat, and pop it out. To do this, open your live 
 Now all you gotta do to copy and paste [this code](https://gist.github.com/Allybe/7c468f932e3785023d76273523f0a9f3) into your console, and check Minecraft to see if you got the "Connection Started" message. If you do, you are ready! Just make sure to keep the browser open.
 
 If you think you messed up any of the steps above, you can just reload the browser window to try again.
+
+## Why?
+The normal and intended method of getting a live YouTube Chat isn't the best, and you'll hit a limit in the amount of messages you can fetch from your chat. The intended way to fix this is to pay for more API requests. But that isn't ideal for small streamers that do this for fun, so this is a workaround the intended method to help smaller creators that want this.
