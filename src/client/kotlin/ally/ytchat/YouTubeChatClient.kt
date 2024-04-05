@@ -40,8 +40,11 @@ object YouTubeChatClient : ClientModInitializer {
 			reader.close()
 			input.close()
 
-			player.sendMessage(Text.of(stringBuilder.toString()))
-
+			val text = stringBuilder.toString().replace("\n", "").replace("\r", "")
+			if (text == "") {
+				return
+			}
+			player.sendMessage(Text.of(text))
 			request.sendResponseHeaders(200, 0);
 		}
 	}
